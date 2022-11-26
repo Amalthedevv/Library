@@ -1,0 +1,47 @@
+<!-- NAVBAR -->
+<nav class="navbar navbar-light navbar-expand-lg" style="background-color: black;">
+  <div class="container-fluid">
+    <a class="navbar-brand" style="color: white; font-weight:900;" href="#">Books Collections</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <button type="button" class="btn btn-light" (click)="navigate()">Add-New</button>
+        <button type="button" routerLink="" class="btn btn-light ms-2">LogOut</button>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- VIEW JOB -->
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Counts </th>
+        <th scope="col">BookTitle</th>
+        <th scope="col">Author</th>
+        <th scope="col">PublishDate</th>
+        <th scope="col">PageCount</th>
+        <th scope="col">Details</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books; let i= index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{book.book_title}}</td>
+        <td>{{book.author}}</td>
+        <td>{{book.publishdate}}</td>
+        <td>{{book.pagecount}}</td>
+        <td>{{book.details}}</td>
+        <td>
+          <button type="submit" class="btn btn-info m-1" (click)="navigatetoEdit(book._id)">Update</button>
+          <button type="submit" (click)="deleteBook(book._id)" class="btn btn-dark btn-sm p-2 ms-2">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<app-footer></app-footer>
